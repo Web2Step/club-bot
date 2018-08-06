@@ -56,7 +56,7 @@ function Belt_Send(channel,info) {
 function checkTop1(arg) {
     console.log(`Checking ${arg} ..`);
     let timer_check_top1_file;
-    if (config.timer_check_top1_file>'') timer_check_top1_file = "config.timer_check_top1_file";   else timer_check_top1_file = "showchannel_top1.php";
+    if (config.timer_check_top1_file>'') timer_check_top1_file = config.timer_check_top1_file;   else timer_check_top1_file = "showchannel_top1.php";
     let url = 'http://aces-now.lol-info.ru/api/discord-bot/'+timer_check_top1_file+'?checkTop1Channel='+config.timer_check_top1_channel+'&checkTop1Table='+config.timer_check_top1_table+'&param=top1';
     global.getdata = 'Нет данных';
     console.log('URL TIMER: ' + url);

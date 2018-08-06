@@ -6,6 +6,5 @@
   "guild_tournament_role" : "Турнир",
   "guild_main_channel" : "475386533516541952",
   "timer_check_top1": 300000,
-  //"timer_check_top1_file"='showchannel_top1.php'
-  "timer_check_top1_file"='showchannel_top1_test.php'
+  "timer_check_top1_table" : "guild_bot_test" // не указывать - возьмет из конфиг-файла
 }

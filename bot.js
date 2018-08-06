@@ -151,6 +151,12 @@ client.on('message', message => {
     var nick_url = encodeURI(nick);
     var param_str = args.join(" ").trim();
 
+    // ------------- FORCE COMMAND BEGIN ----------------- //
+    if (command === 'force') {
+    	checkTop1('top1');
+	}
+    // ------------- FORCE COMMAND END ----------------- //
+
     // ------------- FARM COMMAND BEGIN ----------------- //
     if (command === 'farm' || command === 'club' || command === 'stat') {
 			let nick2 = param_str;

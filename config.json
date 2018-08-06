@@ -5,5 +5,6 @@
   "guild_id" : "999999991231dadasdasddddas23123123123",
   "guild_tournament_role" : "Турнир",
   "guild_main_channel" : "475386533516541952",
-  "timer_check_top1": 300000
+  //"timer_check_top1": 300000
+  "timer_check_top1": 3000000000000
 }

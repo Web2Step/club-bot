@@ -221,7 +221,8 @@ client.on('message', message => {
 					.addField("WinRate Season:", info.gi_winrate+'%', true)
 					.addField("WinRate Step:", info.gi_winrateStep+'%', true)
 					.addField("Ранг игрока:", info.solo_tier+' '+info.solo_rank, true)
-					.addField("Статус:", active, true)
+					.addField("Серия побед:", info.winstreakSeason, true)
+					//.addField("Статус:", active, true)
 					.addField(":star2:Достижения:", roles, false);
 
 					if (command === 'club' || command === 'stat') embed.setImage(info.main_image);

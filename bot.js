@@ -199,7 +199,7 @@ client.on('message', message => {
 			 var active = info.active;
 			 if (active)  active='В клубе';
 			 else active='Не в клубе';
-
+             console.log('Farm Name: '+info.name);
 					const embed = new Discord.RichEmbed()
 					.setTitle("Профиль игрока: "+info.name.toUpperCase())
 					.setAuthor(me + ' запрашивает..', avatar)

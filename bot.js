@@ -200,6 +200,9 @@ client.on('message', message => {
 			 if (active)  active='В клубе';
 			 else active='Не в клубе';
              console.log('Farm Name: '+info.name);
+             // БАГ без имени?
+             if (info.name === undefined) { message.reply('Ошибка доступа.. попробуйте позднее'); return; }
+
 					const embed = new Discord.RichEmbed()
 					.setTitle("Профиль игрока: "+info.name.toUpperCase())
 					.setAuthor(me + ' запрашивает..', avatar)

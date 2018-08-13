@@ -190,6 +190,8 @@ client.on('message', message => {
 		  baseRequest(options, function(error, response, body) {
 			 if (error) {
 				 console.log(error);
+                 if (error=='ESOCKETTIMEDOUT') message.reply(me + ', попробуй чуть позже.. Проблемка! :robot:');
+                 else message.reply(me + ', у меня траблы!.. ['+error+'] :robot:');
 			 } else {
 			 var info =  body;
 			 var icon = 'http://ddragon.leagueoflegends.com/cdn/'+info.apiImageVersion+'/img/profileicon/'+info.profileIconId+'.png';

@@ -228,9 +228,14 @@ client.on('message', message => {
 					.addField("Ранг игрока:", info.solo_tier+' '+info.solo_rank, true)
 					.addField("Серия побед:", info.gi_winstreakSeason, true)
 					//.addField("Статус:", active, true)
-					.addField(":star2:Достижения:", roles, false);
 
-					if (command === 'club' || command === 'stat') embed.setImage(info.main_image);
+
+					if (command === 'club' || command === 'stat') {
+                        embed.setImage(info.main_image);
+                        embed.addField("Пентакилл:", info.gi_pentaKills, true)
+                    }
+
+                 	embed.addField(":star2:Достижения:", roles, false);
 
 					if (info.relevant<10) {
 						var str2 = '' + message.author.username + ' - Игрока **' + nick + '** нет в Клубе! :thinking:';

@@ -57,7 +57,7 @@ function checkTop1(arg) {
     console.log(`Checking ${arg} ..`);
     let timer_check_top1_file;
     if (config.timer_check_top1_file>'') timer_check_top1_file = config.timer_check_top1_file;   else timer_check_top1_file = "showchannel_top1.php";
-    let url = 'http://aces-now.lol-info.ru/api/discord-bot/'+timer_check_top1_file+'?checkTop1Channel='+config.timer_check_top1_channel+'&checkTop1Table='+config.timer_check_top1_table+'&param=top1';
+    let url = config.guild_site+'/api/discord-bot/'+timer_check_top1_file+'?checkTop1Channel='+config.timer_check_top1_channel+'&checkTop1Table='+config.timer_check_top1_table+'&param=top1';
     global.getdata = 'Нет данных';
     console.log('URL TIMER: ' + url);
 
@@ -166,7 +166,7 @@ client.on('message', message => {
 				nick_url=encodeURI(nick2);
 				nick = nick2;
 			}
-			var url = 'http://aces-now.lol-info.ru/api/discord-bot/getfarm.php?name='+nick_url+'&param='+args[0];
+			var url = config.guild_site+'/api/discord-bot/getfarm.php?name='+nick_url+'&param='+args[0];
 			global.getdata = 'Нет данных';
 
 		  const request = require('request');
@@ -210,7 +210,7 @@ client.on('message', message => {
 					.setAuthor(me + ' запрашивает..', avatar)
 					.setColor(0x00AE86)
 					.setDescription("Клубные характеристики игрока")
-					.setFooter("(c) ACES.LOL-INFO.RU CLUB", "http://smiles.lol-info.ru/aces.png")
+					.setFooter(config.footer_text, config.footer_logo)
 					//.setImage(mainpic)    //- ФОТКА НА ПОЛЭКРАНА!!!
 					.setThumbnail(icon)
 					.setTimestamp()
@@ -255,7 +255,7 @@ client.on('message', message => {
 			nick_url=encodeURI(nick2);
 			nick = nick2;
 		}
-		var url = 'http://aces-now.lol-info.ru/api/discord-bot/getbest.php?name='+nick_url;
+		var url = config.guild_site+'/api/discord-bot/getbest.php?name='+nick_url;
 		global.getdata = 'Нет данных';
 
 	const request = require('request');
@@ -313,7 +313,7 @@ else if ((command === 'bad' || command === 'BAD') && (args[0] === undefined)) {
 			nick_url=encodeURI(nick2);
 			nick = nick2;
 		}
-		var url = 'http://aces-now.lol-info.ru/api/discord-bot/getbad.php?name='+nick_url;
+		var url = config.guild_site+'/api/discord-bot/getbad.php?name='+nick_url;
 		global.getdata = 'Нет данных';
 
 	const request = require('request');
@@ -374,10 +374,10 @@ else if (((command === 'bad' || command === 'best') && (args[0] === 'season' || 
     //console.log('0-'+args[0]+'1-'+args[1]);
 
 		var url = '';
-	 	if (((command==='bad')&&(args[0]==='season')) || (command==='badseason')) url = 'http://aces-now.lol-info.ru/api/discord-bot/getbadseason.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
-		else if (((command==='bad')&&(args[0]==='step')) || (command==='badstep')) url = 'http://aces-now.lol-info.ru/api/discord-bot/getbadstep.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
-		else if (((command==='best')&&(args[0]==='step')) || (command==='beststep')) url = 'http://aces-now.lol-info.ru/api/discord-bot/getbeststep.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
-		else if (((command==='best')&&(args[0]==='season')) || (command==='bestseason')) url = 'http://aces-now.lol-info.ru/api/discord-bot/getbestseason.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+	 	if (((command==='bad')&&(args[0]==='season')) || (command==='badseason')) url = config.guild_site+'/api/discord-bot/getbadseason.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+		else if (((command==='bad')&&(args[0]==='step')) || (command==='badstep')) url = config.guild_site+'/api/discord-bot/getbadstep.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+		else if (((command==='best')&&(args[0]==='step')) || (command==='beststep')) url = config.guild_site+'/api/discord-bot/getbeststep.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+		else if (((command==='best')&&(args[0]==='season')) || (command==='bestseason')) url = config.guild_site+'/api/discord-bot/getbestseason.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
 		global.getdata = 'Нет данных';
 		console.log('URL: ' + url);
 
@@ -439,7 +439,7 @@ else	if (command === 'rating' || command === 'RATING') {
 		if (param_str.length > 2) {
 			params=encodeURI(nick);
 		}
-		var url = 'http://aces-now.lol-info.ru/api/discord-bot/getrating.php?name='+nick_url+'&param2='+params_url;
+		var url = config.guild_site+'/api/discord-bot/getrating.php?name='+nick_url+'&param2='+params_url;
 		global.getdata = 'Нет данных';
 
 	const request = require('request');
@@ -466,7 +466,7 @@ else	if (command === 'rating' || command === 'RATING') {
 		} else {
 		var info =  body;
 		console.log(body);
-		var icon = 'http://smiles.lol-info.ru/aces.png';
+		var icon = config.guild_logo;
 		var avatar = message.author.avatarURL;
 
 			  const embed = new Discord.RichEmbed()
@@ -474,7 +474,7 @@ else	if (command === 'rating' || command === 'RATING') {
 				.setAuthor(me + ' запрашивает..', avatar)
 				.setColor(0x00CE26)
 				.setDescription("Статистика по клубам!")
-				.setFooter("(c) ACES.LOL-INFO.RU CLUB", "http://smiles.lol-info.ru/aces.png")
+				.setFooter(config.footer_text, config.footer_logo)
 				//.setImage(mainpic)    //- ФОТКА НА ПОЛЭКРАНА!!!
 				.setThumbnail(icon)
 				.setTimestamp()
@@ -533,8 +533,8 @@ else	if (command === 'rating' || command === 'RATING') {
 
 // START !TOPIC
     else if (command === 'topic' || command === 'топик') {
-        message.channel.send(nick+', Топик ДНЯ:\r\n'+'http://aces8se.lol-info.ru/topic/'+Date.now()+'/api/vk-bot/cover/tmp.png');
-        console.log('поиск стака запущен..');
+        message.channel.send(nick+', Топик ДНЯ:\r\n'+config.guild_site_pub+'/topic/'+Date.now()+'/api/vk-bot/cover/tmp.png');
+        console.log('поиск топика запущен..');
     }
 // END !TOPIC
 
@@ -587,7 +587,7 @@ else if (command === 'invite' || command === 'INVITE') {
             //message.channel.send('Состав "'+config.guild_tournament_role+'" '+ role_members.length+' чел.: ' + members.join(', '));
             let  info = {};
             info.author_name=null; info.title='Состав "'+config.guild_tournament_role+'" ['+ $members_count + ' чел.]'; info.color='#B6DB43'; info.description="``"+members.join(', ')+"``";
-            info.footer='Турниры клуба'; info.footer_icon='http://smiles.lol-info.ru/aces.png';;
+            info.footer='Турниры клуба'; info.footer_icon=config.guild_logo;
             info.image=null;    //- ФОТКА НА ПОЛЭКРАНА!!!
             info.thumbnail='http://lol-info.ru/images/bots/aces/tournament.png'; info.timestamp=true; info.url=null;
             info.fields=[]; // field['title'], field['value'], field['group'], field['insertline']

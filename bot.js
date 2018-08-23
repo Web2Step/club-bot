@@ -203,7 +203,7 @@ client.on('message', message => {
                 else active='Не в клубе';
                 console.log('Farm Name: '+info.name);
                 // БАГ без имени?
-                if (info.name === undefined) { message.reply('Ошибка доступа.. попробуйте позднее'); console.log('Error: '+info); return; }
+                if (info.name === undefined) { message.reply('Ошибка доступа.. попробуйте позднее'); console.log('Error URL: '+url); return; }
 
                 const embed = new Discord.RichEmbed()
                     .setTitle("Профиль игрока: "+info.name.toUpperCase())

@@ -1,2 +1,2 @@
-# aces-bot
-ACES GUILD BOT
+# club-bot
+League Club Bot

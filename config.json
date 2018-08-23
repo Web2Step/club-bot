@@ -4,14 +4,14 @@
   "chan_invite" : "INVITE ME PLS!",
   "guild_id" : "999999991231dadasdasddddas23123123123",
   "guild_tournament_role" : "Турнир",
-  "guild_main_channel" : "475386533516541952",
-  "guild_site" : "http://aces-now.lol-info.ru",
-  "guild_site_pub" : "http://aces8se.lol-info.ru",
+  "guild_main_channel" : "482274124144836608",
+  "guild_site" : "http://ururu.lol-info.ru",
+  "guild_site_pub" : "http://ururu.lol-info.ru",
   "guild_logo" : "http://smiles.lol-info.ru/aces.png",
   "footer_logo" : "http://smiles.lol-info.ru/aces.png",
-  "footer_text" : "(c) ACES.LOL-INFO.RU CLUB",
+  "footer_text" : "Приобрести бота? - http://vk.ru/artkomov",
   "timer_check_top1": 300000,
-  "timer_check_top1_table" : "guild_bot_test",
-  "timer_check_top1_channel" : "475386533516541952",
-  "timer_check_top1_file" : "showchannel_top1_test.php"
+  "timer_check_top1_table" : "club_bot",
+  "timer_check_top1_channel" : "482274124144836608",
+  "timer_check_top1_file" : "showchannel_top1.php"
 }

@@ -25,6 +25,18 @@ isArray = function(a) {
 };
 // -------------------------------------------//
 
+// ----------- FUNCTION ISJSON - НЕ ПАШЕТ КАК НАДО?!! --------------- //
+function IsJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+// ----------- FUNCTION ISJSON --------------- //
+
+
 // ----------- FUNCTION BELT_Send ------------------------------- //
 function Belt_Send(channel,info) {
     const embed = new Discord.RichEmbed();
@@ -191,9 +203,11 @@ client.on('message', message => {
             if (error) {
                 console.log(error);
                 if (error == 'ESOCKETTIMEDOUT') message.reply(', попробуй чуть позже.. Проблемка! :robot:');
-                else message.reply(me + ', у меня траблы!.. ['+error+'] :robot:');
+                else message.reply(', у меня траблы!.. ['+error+'] :robot:');
             } else {
+                console.log('GET URL FARM: '+url);
                 var info =  body;
+                if (typeof info == 'object') { } else { message.reply(' Игрока **' + nick + '** нет в Клубе!? :thinking:'); console.log('Error URL: '+url); return; }
                 var icon = 'http://ddragon.leagueoflegends.com/cdn/'+info.apiImageVersion+'/img/profileicon/'+info.profileIconId+'.png';
                 var avatar = message.author.avatarURL;
                 var roles = info.roles;

@@ -14,6 +14,10 @@
           <option name="url" value="https://github.com/Web2Step/club-bot.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://github.com" />
+          <option name="userName" value="web2step@mail.ru" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="D:\Git Projects" />

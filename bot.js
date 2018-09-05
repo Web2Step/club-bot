@@ -39,28 +39,31 @@ function IsJson(str) {
 
 // ----------- FUNCTION BELT_Send ------------------------------- //
 function Belt_Send(channel,info) {
-    const embed = new Discord.RichEmbed();
-    //if (info.show_who !== false) embed.setAuthor(me + ' запрашивает..', avatar);
-    if (info.author_name !== undefined && info.author_name !== null) embed.setAuthor(info.author_name, info.author_avatar);
-    if (info.title !== undefined && info.title !== null) embed.setTitle(info.title);
-    if (info.color !== undefined) embed.setColor(info.color);
-    if (info.description !== undefined) embed.setDescription(info.description);
-    if (info.footer !== undefined) embed.setFooter(info.footer, info.footer_icon);
-    if (info.image !== undefined) embed.setImage(info.image);    //- ФОТКА НА ПОЛЭКРАНА!!!
-    if (info.thumbnail !== undefined) embed.setThumbnail(info.thumbnail);
-    if (info.timestamp !== undefined) embed.setTimestamp();
-    if (info.url !== undefined) embed.setURL(info.url);
+    if (info === undefined) channel.send('Нет данных из источника.. [undefined] :confused:');
+    else {
+        const embed = new Discord.RichEmbed();
+        //if (info.show_who !== false) embed.setAuthor(me + ' запрашивает..', avatar);
+        if (info.author_name !== undefined && info.author_name !== null) embed.setAuthor(info.author_name, info.author_avatar);
+        if (info.title !== undefined && info.title !== null) embed.setTitle(info.title);
+        if (info.color !== undefined) embed.setColor(info.color);
+        if (info.description !== undefined) embed.setDescription(info.description);
+        if (info.footer !== undefined) embed.setFooter(info.footer, info.footer_icon);
+        if (info.image !== undefined) embed.setImage(info.image);    //- ФОТКА НА ПОЛЭКРАНА!!!
+        if (info.thumbnail !== undefined) embed.setThumbnail(info.thumbnail);
+        if (info.timestamp !== undefined) embed.setTimestamp();
+        if (info.url !== undefined) embed.setURL(info.url);
 
-    // -------- СОЗДАТЬ СЕТКУ ЗНАЧЕНИЙ -------
-    var fields = info.fields;
-    fields.forEach(function (field) {
-        if (field['insertline'] !== false) embed.addBlankField(field['insertline_group']);
-        embed.addField(field['title'], field['value'], field['group']);
-        //console.log(field);
-    });
-    // ----------------------------------------
-    //client.channels.get(info.guild_channel).send({embed});
-    channel.send({embed});
+        // -------- СОЗДАТЬ СЕТКУ ЗНАЧЕНИЙ -------
+        var fields = info.fields;
+        if (isArray(fields)) fields.forEach(function (field) {
+            if (field['insertline'] !== false) embed.addBlankField(field['insertline_group']);
+            embed.addField(field['title'], field['value'], field['group']);
+            //console.log(field);
+        });
+        // ----------------------------------------
+        //client.channels.get(info.guild_channel).send({embed});
+        channel.send({embed});
+    }
 }
 // ----------------- FUNCTION BELT END ------------------------------ //
 
@@ -171,8 +174,98 @@ client.on('message', message => {
     }
     // ------------- FORCE COMMAND END ----------------- //
 
+
+    // ------------------- START !META ----------------------
+    else if (command === 'meta' || command === 'мета') {
+        //var param_send = null;
+        var param_send = 'source='+args[0];
+        //if ((command === 'bad') || (command === 'best')) param_send=args[1]; else param_send=args[0];
+        //if  (param_send === null) param_send=0;
+        //console.log('0-'+args[0]+'1-'+args[1]);
+
+        var url = '';
+        //if (((command==='bad')&&(args[0]==='season')) || (command==='badseason')) url = config.guild_site+'/api/discord-bot/getbadseason.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+        //else if (((command==='bad')&&(args[0]==='step')) || (command==='badstep')) url = config.guild_site+'/api/discord-bot/getbadstep.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+        url='http://cp.lol-info.ru/meta.php?'+param_send+'&json=true&mingames=250';
+        console.log('URL META: ' + url);
+
+        const request = require('request');
+        var baseRequest = request.defaults({
+            pool: false,
+            agent: false,
+            jar: true,
+            json: true,
+            timeout: 5000,
+            gzip: true,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        var options = {
+            url: url,
+            method: 'GET'
+        };
+        baseRequest(options, function(error, response, body) {
+            if (error) {
+                console.log(error);
+            } else {
+                var info =  body; // из тега БАДИ взять инфу
+                console.log('BODY JSON: '+info);
+                let channel_belt = message.channel; // вывести туда откуда запросили
+                //if (command === 'tournament') channel_belt= message.guild.channels.get(config.guild_main_channel); // вывести на главный канал
+                Belt_Send(channel_belt,info);
+                console.log(info);
+            }
+        });
+    }
+    // ---------------- END !META --------------------------- //
+
+    // ------------------- START !COUNTERPICK ----------------------
+    else if (command === 'контрапик' || command === 'counterpick' || command === 'кп' || command === 'cp') {
+        var param_send = 'champion='+encodeURI(args[0])+'&source='+encodeURI(args[1])+'&line='+encodeURI(args[2]);
+        //if ((command === 'bad') || (command === 'best')) param_send=args[1]; else param_send=args[0];
+        var url = '';
+        //if (((command==='bad')&&(args[0]==='season')) || (command==='badseason')) url = config.guild_site+'/api/discord-bot/getbadseason.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+        //else if (((command==='bad')&&(args[0]==='step')) || (command==='badstep')) url = config.guild_site+'/api/discord-bot/getbadstep.php?name='+nick_url+'&stage='+args[0]+'&param='+param_send;
+        url='http://cp.lol-info.ru/index.php?'+param_send+'&json=true&mingames=250';
+        console.log('URL COUNTERPICK: ' + url);
+
+        const request = require('request');
+        var baseRequest = request.defaults({
+            pool: false,
+            agent: false,
+            jar: true,
+            json: true,
+            timeout: 5000,
+            gzip: true,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        var options = {
+            url: url,
+            method: 'GET'
+        };
+        baseRequest(options, function(error, response, body) {
+            if (error) {
+                console.log(error);
+            } else {
+                var info =  body; // из тега БАДИ взять инфу
+                console.log('BODY JSON: '+info);
+                let channel_belt = message.channel; // вывести туда откуда запросили
+                //if (command === 'tournament') channel_belt= message.guild.channels.get(config.guild_main_channel); // вывести на главный канал
+                Belt_Send(channel_belt,info);
+                console.log(info);
+            }
+        });
+    }
+    // ---------------- END !COUNTERPICK --------------------------- //
+
+
     // ------------- FARM COMMAND BEGIN ----------------- //
-    if (command === 'farm' || command === 'club' || command === 'stat') {
+    else if (command === 'farm' || command === 'club' || command === 'stat') {
         let nick2 = param_str;
         if (nick2.length > 2) {
             nick_url=encodeURI(nick2);

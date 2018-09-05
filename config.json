@@ -10,8 +10,8 @@
   "guild_logo" : "http://smiles.lol-info.ru/aces.png",
   "footer_logo" : "http://smiles.lol-info.ru/aces.png",
   "footer_text" : "Приобрести бота? - http://vk.ru/artkomov",
-  "timer_check_top1": 312200,
+  "timer_check_top1": 412200,
   "timer_check_top1_table" : "club_bot",
-  "timer_check_top1_channel" : "482274124144836608",
+  "timer_check_top1_channel" : "402262733334118402",
   "timer_check_top1_file" : "showchannel_top1.php"
 }

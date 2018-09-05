@@ -300,7 +300,7 @@ client.on('message', message => {
             } else {
                 console.log('GET URL FARM: '+url);
                 var info =  body;
-                if (typeof info == 'object') { } else { message.reply(' Игрока **' + nick + '** нет в Клубе!? :thinking:'); console.log('Error URL: '+url); return; }
+                if (typeof info == 'object') { } else { message.reply(' Игрока **' + nick + '** нет в Клубе!? :thinking:');  console.log('Error URL: '+url); console.log('Error TEXT: '+info); return; }
                 var icon = 'http://ddragon.leagueoflegends.com/cdn/'+info.apiImageVersion+'/img/profileicon/'+info.profileIconId+'.png';
                 var avatar = message.author.avatarURL;
                 var roles = info.roles;

@@ -2,16 +2,39 @@
   "token_levoe"  : "MTg-this-IzNzU3OTA5NjA-is.not-DCeFB-a.real-r4DQlO-t0ken-qerT0",
   "prefix" : "!",
   "chan_invite" : "INVITE ME PLS!",
-  "guild_id" : "999999991231dadasdasddddas23123123123",
-  "guild_tournament_role" : "Турнир",
-  "guild_main_channel" : "482274124144836608",
-  "guild_site" : "http://ururu.lol-info.ru",
-  "guild_site_pub" : "http://ururu.lol-info.ru",
-  "guild_logo" : "http://smiles.lol-info.ru/aces.png",
-  "footer_logo" : "http://smiles.lol-info.ru/aces.png",
-  "footer_text" : "Приобрести бота? - http://vk.ru/artkomov",
-  "timer_check_top1": 412200,
-  "timer_check_top1_table" : "club_bot",
-  "timer_check_top1_channel" : "402262733334118402",
-  "timer_check_top1_file" : "showchannel_top1.php"
+  "guild" : {
+    "402262733334118400":
+    {
+      "tournament_role" : "Турнир - URURUR",
+      "main_channel":"402267668826292235",
+      "site":"http://ururu.lol-info.ru",
+      "site_pub":"http://ururu.lol-info.ru",
+      "logo":"http://smiles.lol-info.ru/aces.png",
+      "footer_logo":"http://smiles.lol-info.ru/aces.png",
+      "footer_text":"Приобрести бота? - http://vk.ru/artkomov",
+      "timer_check_top1": 412200,
+      "timer_check_top1_table" : "club_bot",
+      "timer_check_top1_channel" : "402262733334118402",
+      "timer_check_top1_file" : "showchannel_top1.php"
+    },
+    "222338678599581696":
+    {
+      "tournament_role" : "Турнир - BTK ORNY",
+      "main_channel":"482274124144836608",
+      "site":"http://btk-orny.ru",
+      "site_pub":"http://btk-orny.ru",
+      "logo":"http://smiles.lol-info.ru/aces.png",
+      "footer_logo":"http://smiles.lol-info.ru/aces.png",
+      "footer_text":"(с) https://vk.com/artkomov",
+      "timer_check_top1": 510000,
+      "timer_check_top1_table" : "club_bot",
+      "timer_check_top1_channel" : "482274124144836608",
+      "timer_check_top1_file" : "showchannel_top1.php"
+    }
+  },
+  "error" : {
+    "guild_command":"Дискорд-сервер для данной команды не определен!",
+    "notused!!!!":"http://aces-now.lol-info.ru"
+  },
+  "notused111!!!" : "dsad312312asd"
 }

@@ -5,6 +5,7 @@
   "guild" : {
     "402262733334118400":
     {
+      "prefix":"ururu",
       "tournament_role" : "Турнир - URURUR",
       "main_channel":"402267668826292235",
       "site":"http://ururu.lol-info.ru",
@@ -19,6 +20,7 @@
     },
     "222338678599581696":
     {
+      "prefix":"btk",
       "tournament_role" : "Турнир - BTK ORNY",
       "main_channel":"482274124144836608",
       "site":"http://btk-orny.ru",

@@ -1,0 +1,14 @@
+<application>
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="59ec4e72-52d2-404b-b1d5-254f720f12d2" name="Bitrix Test 192.168.0.3" url="http://192.168.0.3">
+        <fileTransfer host="192.168.0.3" port="22" rootFolder="/home/bitrix/www" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</application>

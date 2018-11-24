@@ -181,7 +181,7 @@ client.on('message', message => {
 
     // ------------- FORCE COMMAND BEGIN ----------------- //
     if (command === 'force') {
-        checkTop1('top1');
+        checkTop1('top1',guild.timer_check_top1_channel);
     }
     // ------------- FORCE COMMAND END ----------------- //
 

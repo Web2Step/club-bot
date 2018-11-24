@@ -143,7 +143,7 @@ client.on('ready', () => {
     var guilds = config.guild;
     for (var key in guilds) {
         console.log('GID: '+key+' set interval..');
-        setInterval(checkTop1, guilds[key]['timer_check_top1'], guilds[key], 'top1: '+key);
+        setInterval(checkTop1, guilds[key]['timer_check_top1'], guilds[key],guilds[key]['timer_check_top1_channel']);
     };
 });
 
@@ -181,7 +181,7 @@ client.on('message', message => {
 
     // ------------- FORCE COMMAND BEGIN ----------------- //
     if (command === 'force') {
-        checkTop1('top1',guild.timer_check_top1_channel);
+        checkTop1(guild,guild.timer_check_top1_channel);
     }
     // ------------- FORCE COMMAND END ----------------- //
 

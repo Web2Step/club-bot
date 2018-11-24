@@ -72,7 +72,7 @@ function checkTop1(guild, arg) {
     console.log('Checking '+guild.site+' / GID: '+arg+' ..');
     let timer_check_top1_file;
     //if (guild['timer_check_top1_file']>'') timer_check_top1_file = guild['timer_check_top1_file'];   else timer_check_top1_file = "showchannel_top1.php";
-    let url = guild['site']+'/api/discord-bot/'+guild['timer_check_top1_file']+'?checkTop1Channel='+guild['timer_check_top1_channel']+'&checkTop1Table='+guild['timer_check_top1_table']+'&param=top1';
+    let url = guild.site+'/api/discord-bot/'+guild.timer_check_top1_file+'?checkTop1Channel='+guild.timer_check_top1_channel+'&checkTop1Table='+guild.timer_check_top1_table+'&param=top1';
     global.getdata = 'Нет данных';
     console.log('URL TIMER: ' + url);
 

@@ -161,7 +161,7 @@ client.on('message', message => {
 
     // --- На каком сервере было сообщение ----------
     const guild_id = message.guild.id;
-    const guild = config.guild[guild_id]; // взять настройки конкретного клуба
+    const guild = config.guild.guild_id; // взять настройки конкретного клуба
 
     // --- Аргументы и команды ----------
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);

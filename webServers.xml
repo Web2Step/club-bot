@@ -9,6 +9,22 @@
           <option name="port" value="22" />
         </fileTransfer>
       </webServer>
+      <webServer id="5bd7faba-5b4d-42b5-907e-b3b0a2b03543" name="ftp-srv33739.ht-systems.ru" url="http://ftp-srv33739.ht-systems.ru">
+        <fileTransfer host="ftp-srv33739.ht-systems.ru" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="c3cb9199-1ebd-4095-9f3e-0dad6f7013cc" name="opencart ht-systems.ru" url="http://opencart-studio.ru">
+        <fileTransfer host="ftp-srv33739.ht-systems.ru" port="21" rootFolder="/opencart-studio.ru/demos/demo202/import-parser">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </application>

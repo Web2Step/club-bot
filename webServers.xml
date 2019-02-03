@@ -10,7 +10,7 @@
         </fileTransfer>
       </webServer>
       <webServer id="5bd7faba-5b4d-42b5-907e-b3b0a2b03543" name="ftp-srv33739.ht-systems.ru" url="http://ftp-srv33739.ht-systems.ru">
-        <fileTransfer host="ftp-srv33739.ht-systems.ru" port="21">
+        <fileTransfer host="ftp-srv33739.ht-systems.ru" port="21" rootFolder="/lol-info.ru/guilds">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

@@ -25,6 +25,14 @@
           <option name="port" value="21" />
         </fileTransfer>
       </webServer>
+      <webServer id="d6b521a2-8b53-4e4f-8330-33c680a142e3" name="demos.web2step.ru" url="http://web2step.ru">
+        <fileTransfer host="ftp-srv33739.ht-systems.ru" port="21" rootFolder="/web2step.ru/demos/">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </application>
